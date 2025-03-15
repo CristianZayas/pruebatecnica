@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
+        path: '',
+        redirectTo: '/list-users',
+        pathMatch: 'full'
+    },
+    {
         path: 'list-users',
         loadComponent: () => import('../app/layout/table-users/table-users.component').then(m => m.TableUsersComponent)
     },
