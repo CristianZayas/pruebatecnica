@@ -1,0 +1,52 @@
+<div class="container my-5 mx-auto">
+   <app-input-search-user />
+  <table class="table">
+    <thead class="text-center">
+      <tr >
+        <th scope="col">Nombre Completo <i class="fa-solid fa-id-badge"></i></th>
+        <th scope="col">Email <i class="fa-solid fa-envelope"></i></th>
+        <th scope="col">Nacionalidad <i class="fa-solid fa-flag"></i></th>
+        <th scope="col">Teléfono <i class="fa-solid fa-square-phone"></i></th>
+        <th scope="col">Website <i class="fa-solid fa-earth-americas"></i> </th>
+        <th scope="col">Fecha de creación <i class="fa-solid fa-calendar"></i></th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+        @if(spinner){
+        <tr>
+          <td colspan="6" class="text-cente"><div class="loader"></div></td>
+        </tr>
+        }@else if(users.length === 0){
+            <tr>
+              <td colspan="6" class="text-center">{{messenger}}</td>
+            </tr>
+           }
+       
+      @for(user of users; track $index) {
+      <tr appFilamarcada [highlightColor]="'#d0f2a8'" >
+        <td >
+          <p>
+            <img
+              class="rounded"
+              src="https://ui-avatars.com/api/?name={{ user.first_name }}"
+              alt=""
+            />
+            {{ user.first_name }} {{ user.last_name }}
+          </p>
+        </td>
+        <td>{{ user.email }}</td>
+        <td>
+            <img class="rounded" src="https://flagsapi.com/{{user.country}}/flat/64.png" alt="">
+            {{ user.country  | countryName}}</td>
+        <td >{{ user.phone | numerotelefono }}</td>
+        <td>
+          <a [href]="user.website">{{ user.website | urlShortener }}</a>
+        </td>
+        <td>
+            {{ user.created_at | date: 'dd/MM/yyyy' }}
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

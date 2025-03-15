@@ -1,0 +1,34 @@
+.rounded{
+    width: 30px;
+    height: 30px;
+    border-radius: 50% !important;
+}
+
+.highlighted-row {
+    background-color: #f3eefc !important;
+  }
+
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 20px;
+    text-transform: uppercase;
+    background:linear-gradient(90deg,#000 50%,#0000 0) right/200% 100%;
+    animation: l21 2s infinite linear;
+    display: grid;
+    justify-self: center;
+  }
+  .loader::before {
+    content :"Cargando...";
+    color: #0000;
+    padding: 0 5px;
+    background: inherit;
+    background-image: linear-gradient(90deg,#fff 50%,#000 0);
+    -webkit-background-clip:text;
+            background-clip:text;
+  }
+  
+  @keyframes l21{
+    100%{background-position: left}
+  }

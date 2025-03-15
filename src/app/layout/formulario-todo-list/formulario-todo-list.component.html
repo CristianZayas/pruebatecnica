@@ -1,0 +1,26 @@
+<div class="container my-5 m-auto">
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                <label for="todo">Tarea</label>
+                <input type="text" class="form-control" id="todo" formControlName="todo" required="">
+                @if(form.get('todo')?.invalid && form.get('todo')?.dirty || form.get('todo')?.touched){
+                    @if(form.get('todo')?.errors?.['required']){
+                        <div class="alert alert-danger">Este campo es requerido</div>
+                    }
+                    @if(form.get('todo')?.errors?.['minLength']){
+                        <div class="alert alert-danger">Este campo se permite minimo 3 caracteres</div>
+                    }
+                }
+                </div>
+                <button [disabled]="form.invalid" type="submit" class="btn btn-primary my-3">Agregar</button>
+            </form>
+        </div>
+        <div class="col-6">
+           <app-table-todo-list [taks]="tak" />
+        </div>
+    </div>
+    
+    
+</div>

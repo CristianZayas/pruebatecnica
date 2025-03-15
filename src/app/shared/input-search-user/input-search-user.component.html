@@ -1,0 +1,11 @@
+<form [formGroup]="formSearch" (ngSubmit)="searchUser()">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar por nombre"
+        formControlName="search"
+      />
+      <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+    </div>
+</form>

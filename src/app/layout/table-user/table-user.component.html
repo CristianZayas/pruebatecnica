@@ -1,0 +1,38 @@
+<div class="container my-5 mx-auto">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"># <i class="fa-solid fa-id-badge"></i></th>
+            <th scope="col">Nombre <i class="fa-solid fa-circle-user"></i></th>
+            <th scope="col">Email <i class="fa-solid fa-envelope"></i></th>
+            <th scope="col">Sitio web <i class="fa-solid fa-earth-americas"></i></th>
+            <th scope="col">Actiones <i class="fa-solid fa-gear"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+            @for(user of users; track $index){
+                <tr>
+                    <th scope="row">{{user.id}}</th>
+                    <td>
+                      <img
+              class="rounded"
+              src="https://ui-avatars.com/api/?name={{ user.name }}"
+              alt=""
+            />
+                      
+                        {{user.name}}
+                      
+                    </td>
+                    <td><i class="fa-solid fa-envelope"></i> {{user.email}}</td>
+                    <td><i class="fa-solid fa-earth-americas"></i> {{user.website}}</td>
+                    <td>
+                        <button type="button" class="btn"><i class="fa-solid fa-pen"></i></button>
+                        <button  type="button" class="btn"><i class="fa-solid fa-circle-xmark"></i></button>
+                    </td>
+                  </tr>
+            }
+        
+         
+        </tbody>
+      </table>
+</div>
